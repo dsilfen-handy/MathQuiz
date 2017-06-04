@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7B0BD15B1EE46E9D0088FBB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD15A1EE46E9D0088FBB3 /* AppDelegate.swift */; };
-		7B0BD15D1EE46E9D0088FBB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD15C1EE46E9D0088FBB3 /* ViewController.swift */; };
+		7B0BD15D1EE46E9D0088FBB3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD15C1EE46E9D0088FBB3 /* RootViewController.swift */; };
 		7B0BD1601EE46E9D0088FBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0BD15E1EE46E9D0088FBB3 /* Main.storyboard */; };
 		7B0BD1621EE46E9D0088FBB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0BD1611EE46E9D0088FBB3 /* Assets.xcassets */; };
 		7B0BD1651EE46E9D0088FBB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0BD1631EE46E9D0088FBB3 /* LaunchScreen.storyboard */; };
 		7B0BD1701EE46E9D0088FBB3 /* MathQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD16F1EE46E9D0088FBB3 /* MathQuizTests.swift */; };
 		7B0BD17B1EE46E9D0088FBB3 /* MathQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD17A1EE46E9D0088FBB3 /* MathQuizUITests.swift */; };
+		7B0BD1891EE472990088FBB3 /* NumberInputCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD1881EE472990088FBB3 /* NumberInputCollectionViewController.swift */; };
+		7B0BD18B1EE4A78F0088FBB3 /* ProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD18A1EE4A78F0088FBB3 /* ProblemViewController.swift */; };
+		7B0BD18D1EE4A8B20088FBB3 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0BD18C1EE4A8B20088FBB3 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		7B0BD1571EE46E9D0088FBB3 /* MathQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0BD15A1EE46E9D0088FBB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B0BD15C1EE46E9D0088FBB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B0BD15C1EE46E9D0088FBB3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		7B0BD15F1EE46E9D0088FBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B0BD1611EE46E9D0088FBB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B0BD1641EE46E9D0088FBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		7B0BD1761EE46E9D0088FBB3 /* MathQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0BD17A1EE46E9D0088FBB3 /* MathQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathQuizUITests.swift; sourceTree = "<group>"; };
 		7B0BD17C1EE46E9D0088FBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B0BD1881EE472990088FBB3 /* NumberInputCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberInputCollectionViewController.swift; sourceTree = "<group>"; };
+		7B0BD18A1EE4A78F0088FBB3 /* ProblemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemViewController.swift; sourceTree = "<group>"; };
+		7B0BD18C1EE4A8B20088FBB3 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				7B0BD15A1EE46E9D0088FBB3 /* AppDelegate.swift */,
-				7B0BD15C1EE46E9D0088FBB3 /* ViewController.swift */,
+				7B0BD18A1EE4A78F0088FBB3 /* ProblemViewController.swift */,
+				7B0BD15C1EE46E9D0088FBB3 /* RootViewController.swift */,
 				7B0BD15E1EE46E9D0088FBB3 /* Main.storyboard */,
 				7B0BD1611EE46E9D0088FBB3 /* Assets.xcassets */,
 				7B0BD1631EE46E9D0088FBB3 /* LaunchScreen.storyboard */,
 				7B0BD1661EE46E9D0088FBB3 /* Info.plist */,
+				7B0BD1881EE472990088FBB3 /* NumberInputCollectionViewController.swift */,
+				7B0BD18C1EE4A8B20088FBB3 /* GameState.swift */,
 			);
 			path = MathQuiz;
 			sourceTree = "<group>";
@@ -262,7 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0BD15D1EE46E9D0088FBB3 /* ViewController.swift in Sources */,
+				7B0BD1891EE472990088FBB3 /* NumberInputCollectionViewController.swift in Sources */,
+				7B0BD15D1EE46E9D0088FBB3 /* RootViewController.swift in Sources */,
+				7B0BD18D1EE4A8B20088FBB3 /* GameState.swift in Sources */,
+				7B0BD18B1EE4A78F0088FBB3 /* ProblemViewController.swift in Sources */,
 				7B0BD15B1EE46E9D0088FBB3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
