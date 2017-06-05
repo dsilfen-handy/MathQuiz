@@ -26,14 +26,8 @@ class NumberInputCollectionViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView?.backgroundColor = UIColor.blue
-
-      // Uncomment the following line to preserve selection between presentations
-      // self.clearsSelectionOnViewWillAppear = false
-
-      // Register cell classes
-    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-      // Do any additional setup after loading the view.
+    self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    self.collectionView?.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
   }
 
   // MARK: UICollectionViewDataSource
