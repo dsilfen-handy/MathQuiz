@@ -53,7 +53,6 @@ class NumberInputCollectionViewController: UICollectionViewController {
   }
 
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Selected item at \(indexPath.row)")
     self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.number("\(indexPath.row)"))
   }
   

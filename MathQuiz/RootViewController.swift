@@ -33,7 +33,7 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
     self.questionLabel = UILabel(frame: questionFrame)
     self.view.addSubview(self.questionLabel!)
     self.questionLabel?.text = self.gameState.currentQuestion()?.text
-    
+    self.questionLabel?.textAlignment = NSTextAlignment.center
     let inputFrame = CGRect(
       x: 0,
       y: questionViewHeight,
@@ -42,6 +42,7 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
     )
 
     self.inputLabel = UILabel(frame: inputFrame)
+    self.inputLabel?.textAlignment = NSTextAlignment.right
     self.view.addSubview(self.inputLabel!)
     
     self.gameState.delegate = self
