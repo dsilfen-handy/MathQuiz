@@ -78,7 +78,15 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
     case .number(let numberText):
       self.inputItems.append(numberText)
     case .delete:
-      self.inputItems.removeFirst()
+      if !self.inputItems.isEmpty {
+        self.inputItems.removeLast()
+      }
+    case .negate:
+      if "-" == self.inputItems.first {
+        self.inputItems.removeFirst()
+      } else {
+        self.inputItems = [ "-" ] + self.inputItems
+      }
     }
     
     self.inputLabel?.text = self.inputItems.joined()
@@ -91,6 +99,7 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
     if let question = state.currentQuestion() {
       self.questionLabel?.text = question.text
       self.inputLabel?.text = ""
+      self.inputItems.removeAll()
     }
   }
 }

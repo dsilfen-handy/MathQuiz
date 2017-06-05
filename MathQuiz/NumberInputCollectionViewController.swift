@@ -10,6 +10,7 @@ import UIKit
 
 enum NumberInputSelection {
   case delete
+  case negate
   case number(String)
 }
 
@@ -22,14 +23,20 @@ private let reuseIdentifier = "SelectionCell"
 class NumberInputCollectionViewController: UICollectionViewController {
 
   var delegate: NumberInputCollectionViewControllerDelegate?
-
+  var orderedValuesForCollectionItems: [String] = [
+    "1", "2", "3",
+    "4", "5", "6",
+    "7", "8", "9",
+    "-", "0", "⌫"
+  ]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView?.backgroundColor = UIColor.blue
     self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     self.collectionView?.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
   }
-
+  
   // MARK: UICollectionViewDataSource
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -46,21 +53,36 @@ class NumberInputCollectionViewController: UICollectionViewController {
     
     cell.backgroundColor = UIColor.white
     
-    let label = self.makeLabelWith(text: "\(indexPath.row)")
+    let label = UILabel()
+    label.text = self.orderedValuesForCollectionItems[indexPath.row]
+    label.textAlignment = NSTextAlignment.center
     cell.contentView.addSubview(label)
     label.frame = cell.contentView.frame
     return cell
   }
 
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.number("\(indexPath.row)"))
+    let value = self.orderedValuesForCollectionItems[indexPath.row]
+    if !matches(for: "[0-9]", in: value).isEmpty {
+      self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.number(value))
+    } else if (!matches(for: "⌫", in: value).isEmpty) {
+      self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.delete)
+    } else {
+      self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.negate)
+    }
   }
   
-  private func makeLabelWith(text: String) -> UILabel {
-    let label = UILabel()
-    label.text = text
-    label.textAlignment = NSTextAlignment.center
-    return label
+  func matches(for regex: String, in text: String) -> [String] {
+    
+    do {
+      let regex = try NSRegularExpression(pattern: regex)
+      let nsString = text as NSString
+      let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
+      return results.map { nsString.substring(with: $0.range)}
+    } catch let error {
+      print("invalid regex: \(error.localizedDescription)")
+      return []
+    }
   }
 
     // MARK: UICollectionViewDelegate
