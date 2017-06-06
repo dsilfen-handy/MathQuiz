@@ -8,9 +8,13 @@
 
 import UIKit
 
-struct Question {
+class Question {
   let text: String
   let answer: String
+  public init(text: String, answer: String) {
+    self.text = text
+    self.answer = answer
+  }
 }
 
 protocol GameStateDelegate: class {
@@ -24,6 +28,7 @@ class GameState: NSObject {
     Question(text: "4 + 4", answer: "8"),
     Question(text: "10 - 4", answer: "6"),
     Question(text: "1 + 1", answer: "2"),
+    Question(text: "10 - 11", answer: "-1"),
   ]
   
   var answeredQuestions: [Question] = []
