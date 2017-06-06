@@ -9,6 +9,7 @@
 import UIKit
 
 enum NumberInputSelection {
+  case submit
   case delete
   case number(String)
 }
@@ -20,7 +21,8 @@ protocol NumberInputCollectionViewControllerDelegate: class {
 private let reuseIdentifier = "SelectionCell"
 
 class NumberInputCollectionViewController: UICollectionViewController {
-
+  let deleteIndexRow = 10
+  let sumbitIndexRow = 11
   var delegate: NumberInputCollectionViewControllerDelegate?
 
   override func viewDidLoad() {
@@ -53,15 +55,26 @@ class NumberInputCollectionViewController: UICollectionViewController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
     cell.backgroundColor = UIColor.white
-    
-    let label = self.makeLabelWith(text: "\(indexPath.row)")
+    var label = self.makeLabelWith(text: "\(indexPath.row)")
+    if indexPath.row == self.deleteIndexRow {
+      label = self.makeLabelWith(text: "⬅️")
+    } else if indexPath.row == self.sumbitIndexRow{
+        label = self.makeLabelWith(text: "▶️")
+    }
     cell.contentView.addSubview(label)
     label.frame = cell.contentView.frame
     return cell
   }
 
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.number("\(indexPath.row)"))
+    if indexPath.row == self.deleteIndexRow {
+      self.delegate?.numberInputCollectionViewController(self, didSelect:  NumberInputSelection.delete)
+    } else if indexPath.row == self.sumbitIndexRow{
+        self.delegate?.numberInputCollectionViewController(self, didSelect:NumberInputSelection.submit)
+    } else {
+      self.delegate?.numberInputCollectionViewController(self, didSelect: NumberInputSelection.number("\(indexPath.row)"))
+    }
+    
   }
   
   private func makeLabelWith(text: String) -> UILabel {

@@ -58,7 +58,6 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
       collectionViewLayout: flowLayout
     )
     collectionViewController.delegate = self
-
     self.addChildViewController(collectionViewController)
     self.view.addSubview(collectionViewController.view)
     let collectionViewHeight = (questionViewHeight + inputViewHeight)
@@ -78,11 +77,14 @@ class RootViewController: UIViewController, NumberInputCollectionViewControllerD
     case .number(let numberText):
       self.inputItems.append(numberText)
     case .delete:
-      self.inputItems.removeFirst()
+      if !self.inputItems.isEmpty {
+        self.inputItems.removeLast()
+      }
+    case .submit:
+      self.gameState.attemptAnswer(self.inputItems.joined())
     }
     
     self.inputLabel?.text = self.inputItems.joined()
-    self.gameState.attemptAnswer(self.inputItems.joined())
   }
   
   // MARK: GameStateDelegate
